@@ -1,2 +1,2 @@
 # python
-A repo for my python code
+A repo for my Python code
