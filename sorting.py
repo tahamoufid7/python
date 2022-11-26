@@ -71,8 +71,34 @@ def quick_sort(unsorted_list):
         #Recursively call quick_sort() on each of the three sublists
         return quick_sort(less_than) + equal_to + quick_sort(greater_than)
 
+def bubble_sort(unsorted_list):
+    '''Takes an unsorted list and sorts the items in ascending order using the bubble sort algorithm.'''
+    last_sorted_index = len(unsorted_list)
 
+    #Assume the list is not sorted
+    sorted = False
 
+    while sorted != True:
+        #Once sorting has begun, set the sorted flag to True in order to break out of the loop at the next iteration unless a swap is made
+        sorted = True
+        for index in range(last_sorted_index - 1):
+            #If a number in the list is greater than the number on its right, swap the two numbers and set the sorted flag to False to trigger another iteration of the loop
+            if unsorted_list[index] > unsorted_list[index + 1]:
+                sorted = False
+                unsorted_list[index], unsorted_list[index + 1] = unsorted_list[index + 1], unsorted_list[index]
+        #At every iteration, the largest unsorted number is moved to the right of the list. The rightmost portion of the list is sorted and does not need to be revisited
+        last_sorted_index -= 1
 
+    return unsorted_list
+
+def is_sorted(sorted_list):
+    '''Takes in a list and traverses the list comparing adjacent elements to ensure each element less than the following one.'''
+    length_of_list = len(sorted_list)
+
+    for index in range(length_of_list - 1):
+        if sorted_list[index] > sorted_list[index + 1]:
+            return False
+
+    return True
 
         
