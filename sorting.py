@@ -91,6 +91,33 @@ def bubble_sort(unsorted_list):
 
     return unsorted_list
 
+def insertion_sort(unsorted_list):
+    '''Takes an unsorted list and sorts the items in ascending order using the insertion sort algorithm.'''
+    number_of_items = len(unsorted_list)
+    number_of_sorted_items = 0
+    smallest_item_value = 0
+    smallest_item_index = 0
+
+    # Iterate over the unsorted list while the number of sorted items is less than the total number of items
+    # At each iteration, the smallest item is sorted to the beginning of the list
+    while number_of_sorted_items < number_of_items:
+        smallest_item_value = unsorted_list[number_of_sorted_items]
+        smallest_item_index = number_of_sorted_items
+
+        #Find the smallest element in the unsorted portion of the list
+        for index in range(number_of_items)[number_of_sorted_items: number_of_items]:
+            if unsorted_list[index] < smallest_item_value:
+                smallest_item_value = unsorted_list[index]
+                smallest_item_index = index
+
+        #Swap the smallest element with the one in the left-most position of the unsorted portion of the list. The item is now sorted and ignored in the next pass
+        unsorted_list[number_of_sorted_items], unsorted_list[smallest_item_index] = unsorted_list[smallest_item_index], unsorted_list[number_of_sorted_items]
+
+        #Increment the number of sorted elements so they are skipped in the next iteration
+        number_of_sorted_items += 1
+        
+    return unsorted_list
+
 def is_sorted(sorted_list):
     '''Takes in a list and traverses the list comparing adjacent elements to ensure each element is less than the following one.'''
     length_of_list = len(sorted_list)
