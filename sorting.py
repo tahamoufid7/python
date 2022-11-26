@@ -92,7 +92,7 @@ def bubble_sort(unsorted_list):
     return unsorted_list
 
 def is_sorted(sorted_list):
-    '''Takes in a list and traverses the list comparing adjacent elements to ensure each element less than the following one.'''
+    '''Takes in a list and traverses the list comparing adjacent elements to ensure each element is less than the following one.'''
     length_of_list = len(sorted_list)
 
     for index in range(length_of_list - 1):
